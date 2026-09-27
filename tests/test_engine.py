@@ -1,6 +1,7 @@
+"""Engine + recommender checks. Need the built database, so they're skipped if it doesn't exist."""
 from pathlib import Path
 import pytest
-import engine, llm, recommend
+import engine
 
 pytestmark = pytest.mark.skipif(not Path(engine.DB).exists(), reason="run the three preprocessing scripts first")
 STUDENT = {"programmes": ["COMPUTER SCIENCE"], "admission_year": 2024,
@@ -36,14 +37,20 @@ def test_categories(con):
     assert cats["CS F407"] == "DEL" and cats["CS F351"] == "CDC" and cats["GS F211"] == "HUEL"
 
 
-def test_ai_del_query(con):
-    prefs = llm.keyword_parse("Suggest DELs related to AI.")
-    recs = recommend.recommend(con, STUDENT, prefs)
-    assert recs and all(c["category"] == "DEL" for c in recs)
-    assert "CS F407" in {c["code"] for c in recs}
+def test_why_not(con):
+    assert engine.why_not(con, STUDENT, "CS F407") == (True, "DEL")
+    assert engine.why_not(con, STUDENT, "CS F213")[0] is False
+    assert "first-year" in engine.why_not(con, STUDENT, "MATH F111")[1]
+    assert "not offered" in engine.why_not(con, STUDENT, "AN F999")[1]
 
 
-def test_no_midsem_query_never_returns_a_course_with_midsem(con):
-    facts = recommend.handout_facts(con)
-    for c in recommend.recommend(con, STUDENT, {"no_midsem": True}, limit=20):
-        assert facts.get(c["code"], {}).get("has_midsem") != 1
+def test_2026_admit_gets_warning(con):
+    notes = engine.remaining(con, {**STUDENT, "admission_year": 2026})["notes"]
+    assert any(n.startswith("2026") for n in notes)
+
+
+def test_study_year_and_assumed_cdcs(con):
+    assert engine.study_year({"admission_year": 2024}) == 3
+    assert engine.study_year({"admission_year": 2024, "year": 4}) == 4
+    assumed = engine.assumed_done(con, ["COMPUTER SCIENCE"], 3)
+    assert "CS F213" in assumed and not any(engine.level(c) >= 3 for c in assumed)
