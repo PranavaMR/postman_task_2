@@ -10,12 +10,11 @@ flowchart LR
     A[Timetable PDF] -->|timetable.py| DB[(academic.db)]
     B[540 handout PDFs] -->|handouts.py| DB
     C[Bulletin PDF] -->|bulletin.py| DB
-    P[Profile + question] --> E[engine.py<br/>remaining + eligible]
-    DB --> E
-    E --> R[recommend.py<br/>preferences + policy checks]
-    L1[llm.py<br/>question → preferences] --> R
-    R --> L2[llm.py<br/>facts → answer]
-    L2 --> UI[app.py<br/>Streamlit]
+    DB --> E[engine.py<br/>requirements + eligibility]
+    E --> T[recommend.py<br/>search tools]
+    U[Student profile + chat] --> G[llm.py<br/>Gemini agent]
+    G <-->|function calls| T
+    G --> UI[app.py<br/>Streamlit]
 ```
 
 ## Run it
@@ -26,8 +25,8 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 Put the dataset in `data/raw/`: `timetable.pdf`, `bulletin.pdf`, and the handouts in `data/raw/handouts/`.
-Optionally copy `.env.example` to `.env` and add a Gemini API key; without one the app uses a keyword parser
-and a template answer instead of the LLM.
+Copy `.env.example` to `.env` and add a Gemini API key from Google AI Studio. The app shows at the top whether
+Gemini is connected; without it, a clearly labelled offline keyword mode answers instead.
 
 ```
 python timetable.py data/raw/timetable.pdf data/processed/academic.db
@@ -46,15 +45,27 @@ semester's timetable or handouts only needs the relevant script re-run.
 | `timetable.py` | Timetable → `courses`, `sections` (slots, cancelled flag, midsem/compre per section), `equivalents` |
 | `handouts.py` | Handouts → `handouts` (midsem, components, makeup, attendance, topics, source quotes) + `handouts_review.csv` |
 | `bulletin.py` | Bulletin → `programme_courses` (core / DEL / humanities pool) and `programme_targets` (unit targets) |
-| `engine.py` | Deterministic rules: remaining requirements and eligible courses with their category (CDC/DEL/HUEL/OPEL) |
-| `recommend.py` | Filters eligible courses by preferences using handout facts, adds policy notes, ranks |
-| `llm.py` | Gemini: question → preference JSON, and facts → answer. Keyword/template fallback |
+| `engine.py` | Deterministic rules: remaining requirements, eligible courses with their category (CDC/DEL/HUEL/OPEL), and why a course is not available |
+| `recommend.py` | The agent's tools: `search_courses` (eligible courses + handout facts, filtered by category, code prefix, keywords, midsem/attendance/makeup/project/open-book) and `course_details` |
+| `llm.py` | Gemini chat agent with function calling and chat history; offline keyword mode |
 | `app.py` | Streamlit dashboard: profile, remaining requirements, chat |
+
+## Student profile
+
+The year of study is worked out from the admission year (2024 → year 3 in Sem I 2026-27) and can be
+overridden. CDCs normally taken in earlier years (course numbers F2xx for a third-year, and so on) are assumed
+cleared, so the student only marks **backlogs**, the **electives** they have done (the list shows only their
+programme's DELs and the humanities pool) and any other courses. First-year courses are never recommended to
+students past first year.
 
 ## Design decisions
 
-- **Rules first, LLM last.** Eligibility is decided only by `engine.py`. The LLM never sees the raw PDFs and
-  never decides eligibility; it only parses the question and phrases the answer from facts it is given.
+- **Rules decide, the LLM converses.** Eligibility is decided only by `engine.py`. Gemini is an agent with three
+  tools (`get_requirements`, `search_courses`, `get_course_details`); it decides which to call, does the semantic
+  matching (for "AI-related" it reads the eligible DELs' titles and syllabus topics and picks, e.g., the LLM course),
+  and writes the answer. It can only recommend courses the tools returned, and is told to say "not verified" when a
+  handout fact is missing.
+- **Visible fallback.** Without a working key the app says so at the top and answers with keyword matching.
 - **Rule-based extraction, no LLM in preprocessing.** All three documents are parsed with regular expressions
   into SQLite. Anything the rules cannot decide is stored as `unknown`/`NULL` and shown as *not verified*
   rather than guessed.
@@ -102,19 +113,24 @@ semester's timetable or handouts only needs the relevant script re-run.
   Architecture) have no DEL-unit target found. The BBA programme name is not in the PDF text.
 - **Four lecture sections** (CS F303, CS F363, CHE F415, CHE G553) lost their day/hour slots because the PDF
   lays those cells out of reading order.
+- **Assumed CDCs** use the course-number convention (F2xx = second year), not the Bulletin's semester charts,
+  so a CDC scheduled unusually early or late has to be corrected by hand in the profile.
 - Minors are stored in the profile but not used; timetable clash checking (the optional brownie point) is not
   implemented.
+## Errors and Forthcomings
 
+- While testing it with streamlit UI
 ## How this was built
 
 This project was built with the assistance of Sonnet 5, which I used to make
-1. handouts.py
-2. bulletin.py
-3. timetable.py
-4. app.py
-5. llm.py ( coded by hand but syntaxically guided )
-6. tests folder ( except test_engine.py )
-where i gave the exact edge cases needed and the logic behind it ( as it was tedious to make it parse bulletin due to rate limits ).
-Claude proposed the architecture, with which I ran the entire dataset over the pipelines- ignored some files due to the time constraint of the tasks. With the main limitation being, the lack of incorporation of first year course related queries. 
-This was because the bulletin, and handout+timetable data were of different years.
-I am still learning the regex-based parsing code in detail as it was coded 100% by AI. 
+
+- handouts.py
+- bulletin.py
+- timetable.py
+- app.py
+- llm.py 
+- tests folder ( except test_engine.py ) 
+
+where i gave the exact edge cases needed and the logic behind it ( as it was tedious to make it parse bulletin due to rate limits ). 
+
+Claude proposed the architecture, with which I ran the entire dataset over the pipelines- ignored some files due to the time constraint of the tasks. With the main limitation being, the lack of incorporation of first year course related queries. This was because the bulletin, and handout+timetable data were of different years. I am still learning the regex-based parsing code in detail as it was coded 100% by AI.
