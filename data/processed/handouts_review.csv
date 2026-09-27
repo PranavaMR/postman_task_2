@@ -1,0 +1,294 @@
+code,source_file,problems
+BIO G512,013_BIO_G512.pdf,no evaluation section found
+BIO G512,014_BIO_G512.pdf,no evaluation section found
+BIO G524,018_BIO_G524.pdf,evaluation weights unclear (sum=90)
+BIO G524,019_BIO_G524.pdf,evaluation weights unclear (sum=90)
+BIO G525,020_BIO_G525.pdf,no evaluation section found
+BIO G532,021_BIO_G532.pdf,evaluation weights unclear (sum=60)
+BIO G532,022_BIO_G532.pdf,evaluation weights unclear (sum=60)
+BITS C797T,028_BITS_C797T.pdf,no evaluation section found; makeup policy unknown
+BITS E574,029_BITS_E574.pdf,no evaluation section found; makeup policy unknown
+BITS E584,030_BITS_E584.pdf,no evaluation section found; makeup policy unknown
+BITS E594,031_BITS_E594.pdf,no evaluation section found; makeup policy unknown
+BITS F101-1,032_BITS_F101-1.pdf,"pass/fail course, no graded components"
+BITS F103,033_BITS_F103.pdf,no evaluation section found
+BITS F110,034_BITS_F110.pdf,evaluation weights unclear (sum=135)
+BITS F111,035_BITS_F111.pdf,evaluation weights unclear (sum=84)
+BITS F214,037_BITS_F214.pdf,no evaluation section found; makeup policy unknown
+BITS F219,039_BITS_F219.pdf,evaluation weights unclear (sum=60)
+BITS F234,042_BITS_F234.pdf,evaluation weights unclear (sum=80)
+BITS F314,043_BITS_F314.pdf,evaluation weights unclear (sum=115)
+BITS F327,044_BITS_F327.pdf,evaluation weights unclear (sum=59)
+BITS F364,046_BITS_F364.pdf,evaluation weights unclear (sum=70); makeup policy unknown
+BITS F385,047_BITS_F385.pdf,evaluation weights unclear (sum=133)
+BITS F428,050_BITS_F428.pdf,makeup policy unknown
+BITS F446,054_BITS_F446.pdf,evaluation weights unclear (sum=23)
+BITS F463,056_BITS_F463.pdf,no evaluation section found
+BITS F467,058_BITS_F467.pdf,no evaluation section found
+BITS F468,059_BITS_F468.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+BITS F482,061_BITS_F482.pdf,evaluation weights unclear (sum=75)
+BITS G511,063_BITS_G511.pdf,no evaluation section found; makeup policy unknown
+BITS G540,064_BITS_G540.pdf,evaluation weights unclear (sum=60); makeup policy unknown
+BITS G562T,065_BITS_G562T.pdf,no evaluation section found; makeup policy unknown
+BITS G563T,066_BITS_G563T.pdf,no evaluation section found; makeup policy unknown
+BITS G564T,067_BITS_G564T.pdf,no evaluation section found; makeup policy unknown
+BITS G661,068_BITS_G661.pdf,no evaluation section found; makeup policy unknown
+BITS U103,069_BITS_U103.pdf,no evaluation section found
+BITS U107,071_BITS_U107.pdf,evaluation weights unclear (sum=135)
+BITS U467,074_BITS_U467.pdf,no evaluation section found
+CE F211,075_CE_F211.pdf,evaluation weights unclear (sum=105)
+CE F230,077_CE_F230.pdf,evaluation weights unclear (sum=112)
+CE F231,078_CE_F231.pdf,evaluation weights unclear (sum=55)
+CE F312,079_CE_F312.pdf,no evaluation section found
+CE F313,080_CE_F313.pdf,evaluation weights unclear (sum=49)
+CE F417,083_CE_F417.pdf,evaluation weights unclear (sum=65)
+CE F423,084_CE_F423.pdf,evaluation weights unclear (sum=65)
+CE G515,086_CE_G515.pdf,evaluation weights unclear (sum=35)
+CE G515,087_CE_G515.pdf,evaluation weights unclear (sum=35)
+CE G527,091_CE_G527.pdf,makeup policy unknown
+CE G527,092_CE_G527.pdf,makeup policy unknown
+CE G534,093_CE_G534.pdf,evaluation weights unclear (sum=105)
+CE G534,094_CE_G534.pdf,evaluation weights unclear (sum=105)
+CE G545,095_CE_G545.pdf,evaluation weights unclear (sum=91)
+CE G545,096_CE_G545.pdf,evaluation weights unclear (sum=91)
+CE G549,099_CE_G549.pdf,evaluation weights unclear (sum=86)
+CE G549,100_CE_G549.pdf,evaluation weights unclear (sum=86)
+CE G551,101_CE_G551.pdf,no evaluation section found
+CE G551,102_CE_G551.pdf,no evaluation section found
+CE G565,103_CE_G565.pdf,evaluation weights unclear (sum=80)
+CE G565,104_CE_G565.pdf,evaluation weights unclear (sum=80)
+CE G613,107_CE_G613.pdf,evaluation weights unclear (sum=91)
+CE G613,108_CE_G613.pdf,evaluation weights unclear (sum=91)
+CE G617,113_CE_G617.pdf,evaluation weights unclear (sum=0)
+CE G617,114_CE_G617.pdf,evaluation weights unclear (sum=0)
+CHE F212,118_CHE_F212.pdf,evaluation weights unclear (sum=101)
+CHE F266,121_CHE_F266.pdf,evaluation weights unclear (sum=70); makeup policy unknown
+CHE F312,123_CHE_F312.pdf,evaluation weights unclear (sum=30)
+CHE F366,126_CHE_F366.pdf,evaluation weights unclear (sum=38); makeup policy unknown
+CHE F367,127_CHE_F367.pdf,evaluation weights unclear (sum=38); makeup policy unknown
+CHE F376,128_CHE_F376.pdf,evaluation weights unclear (sum=38); makeup policy unknown
+CHE F377,129_CHE_F377.pdf,evaluation weights unclear (sum=38); makeup policy unknown
+CHE F411,130_CHE_F411.pdf,evaluation weights unclear (sum=48)
+CHE F491,132_CHE_F491.pdf,evaluation weights unclear (sum=70)
+CHE G552,134_CHE_G552.pdf,no evaluation section found
+CHE G554,137_CHE_G554.pdf,evaluation weights unclear (sum=95)
+CHEM F212,140_CHEM_F212.pdf,evaluation weights unclear (sum=0)
+CHEM F214,142_CHEM_F214.pdf,evaluation weights unclear (sum=120)
+CHEM F242,143_CHEM_F242.pdf,evaluation weights unclear (sum=20)
+CHEM F311,144_CHEM_F311.pdf,evaluation weights unclear (sum=90)
+CHEM F330,148_CHEM_F330.pdf,evaluation weights unclear (sum=75)
+CHEM G521,152_CHEM_G521.pdf,evaluation weights unclear (sum=65)
+CHEM G521,153_CHEM_G521.pdf,evaluation weights unclear (sum=65)
+CHEM G553,156_CHEM_G553.pdf,makeup policy unknown
+CHEM G553,157_CHEM_G553.pdf,makeup policy unknown
+CHEM U101,158_CHEM_U101.pdf,evaluation weights unclear (sum=65)
+CHEM U110,159_CHEM_U110.pdf,no evaluation section found
+CS F301,164_CS_F301.pdf,evaluation weights unclear (sum=78)
+CS F372,169_CS_F372.pdf,evaluation weights unclear (sum=75)
+CS F407,170_CS_F407.pdf,evaluation weights unclear (sum=103)
+CS F415,171_CS_F415.pdf,no evaluation section found
+CS F446,174_CS_F446.pdf,makeup policy unknown
+CS G526,178_CS_G526.pdf,no evaluation section found
+CS G526,179_CS_G526.pdf,no evaluation section found
+CS G569,184_CS_G569.pdf,evaluation weights unclear (sum=10)
+CS G569,185_CS_G569.pdf,evaluation weights unclear (sum=10)
+CS G623,186_CS_G623.pdf,evaluation weights unclear (sum=77)
+CS G623,187_CS_G623.pdf,evaluation weights unclear (sum=77)
+CS U101,188_CS_U101.pdf,evaluation weights unclear (sum=50)
+CS U407,191_CS_U407.pdf,evaluation weights unclear (sum=103)
+CS U446,194_CS_U446.pdf,makeup policy unknown
+DE G513,196_DE_G513.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+DE G513,197_DE_G513.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+DE G531,198_DE_G531.pdf,no evaluation section found
+DE G531,199_DE_G531.pdf,no evaluation section found
+DE G611,200_DE_G611.pdf,makeup policy unknown
+DE G611,201_DE_G611.pdf,makeup policy unknown
+DE G612,202_DE_G612.pdf,makeup policy unknown
+ECE F266,206_ECE_F266.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+ECE F314,208_ECE_F314.pdf,evaluation weights unclear (sum=60)
+ECE F331,209_ECE_F331.pdf,evaluation weights unclear (sum=102)
+ECE F366,210_ECE_F366.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+ECE F367,211_ECE_F367.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+ECE F376,212_ECE_F376.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+ECE F377,213_ECE_F377.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+ECE F491,215_ECE_F491.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+ECON F211,216_ECON_F211.pdf,evaluation weights unclear (sum=81)
+ECON F213,218_ECON_F213.pdf,evaluation weights unclear (sum=120)
+ECON F214,219_ECON_F214.pdf,evaluation weights unclear (sum=86)
+ECON F311,220_ECON_F311.pdf,evaluation weights unclear (sum=83)
+ECON F313,222_ECON_F313.pdf,evaluation weights unclear (sum=110)
+ECON F412,226_ECON_F412.pdf,evaluation weights unclear (sum=79)
+ECON F413,227_ECON_F413.pdf,evaluation weights unclear (sum=70)
+ECON F414,228_ECON_F414.pdf,evaluation weights unclear (sum=75)
+ECON F415,229_ECON_F415.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+ECON F417,230_ECON_F417.pdf,no evaluation section found
+EE G508,233_EE_G508.pdf,evaluation weights unclear (sum=35)
+EE G508,234_EE_G508.pdf,evaluation weights unclear (sum=35)
+EEE F111,235_EEE_F111.pdf,evaluation weights unclear (sum=95)
+EEE F244,239_EEE_F244.pdf,evaluation weights unclear (sum=70)
+EEE F266,240_EEE_F266.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+EEE F314,243_EEE_F314.pdf,evaluation weights unclear (sum=75)
+EEE F366,245_EEE_F366.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+EEE F367,246_EEE_F367.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+EEE F376,247_EEE_F376.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+EEE F377,248_EEE_F377.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+EEE F472,255_EEE_F472.pdf,evaluation weights unclear (sum=92)
+EEE F491,256_EEE_F491.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+EEE G511,257_EEE_G511.pdf,evaluation weights unclear (sum=92)
+EEE G511,258_EEE_G511.pdf,evaluation weights unclear (sum=92)
+EEE G512,259_EEE_G512.pdf,evaluation weights unclear (sum=96)
+EEE G512,260_EEE_G512.pdf,evaluation weights unclear (sum=96)
+EEE G513,261_EEE_G513.pdf,evaluation weights unclear (sum=80)
+EEE G513,262_EEE_G513.pdf,evaluation weights unclear (sum=80)
+EEE G516,265_EEE_G516.pdf,no evaluation section found
+EEE G516,266_EEE_G516.pdf,no evaluation section found
+EEE G549,268_EEE_G549.pdf,no evaluation section found
+EEE G554,269_EEE_G554.pdf,evaluation weights unclear (sum=82)
+EEE G554,270_EEE_G554.pdf,evaluation weights unclear (sum=82)
+EEE U111,283_EEE_U111.pdf,evaluation weights unclear (sum=98)
+ENVS F211,285_ENVS_F211.pdf,no evaluation section found
+FIN F313,288_FIN_F313.pdf,evaluation weights unclear (sum=79)
+GS F211,291_GS_F211.pdf,evaluation weights unclear (sum=111)
+GS F221,294_GS_F221.pdf,no evaluation section found
+GS F222,295_GS_F222.pdf,evaluation weights unclear (sum=0)
+GS F223,296_GS_F223.pdf,evaluation weights unclear (sum=70)
+GS F232,298_GS_F232.pdf,evaluation weights unclear (sum=70)
+GS F233,299_GS_F233.pdf,no evaluation section found; makeup policy unknown
+GS F241,300_GS_F241.pdf,evaluation weights unclear (sum=50)
+GS F245,302_GS_F245.pdf,evaluation weights unclear (sum=95)
+GS F266,303_GS_F266.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+GS F311,304_GS_F311.pdf,evaluation weights unclear (sum=73)
+GS F321,307_GS_F321.pdf,evaluation weights unclear (sum=60)
+GS F322,308_GS_F322.pdf,evaluation weights unclear (sum=17)
+GS F331,309_GS_F331.pdf,evaluation weights unclear (sum=105)
+GS F344,311_GS_F344.pdf,no evaluation section found
+GS F366,312_GS_F366.pdf,evaluation weights unclear (sum=28); makeup policy unknown
+GS F367,313_GS_F367.pdf,evaluation weights unclear (sum=28); makeup policy unknown
+GS F376,314_GS_F376.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+GS F377,315_GS_F377.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+GS F491,316_GS_F491.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+HSS F221,317_HSS_F221.pdf,evaluation weights unclear (sum=17)
+HSS F227,320_HSS_F227.pdf,evaluation weights unclear (sum=60)
+HSS F266,322_HSS_F266.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+HSS F316,323_HSS_F316.pdf,evaluation weights unclear (sum=95)
+HSS F323,324_HSS_F323.pdf,evaluation weights unclear (sum=133)
+HSS F324,325_HSS_F324.pdf,evaluation weights unclear (sum=63)
+HSS F328,326_HSS_F328.pdf,evaluation weights unclear (sum=133)
+HSS F329,327_HSS_F329.pdf,no evaluation section found
+HSS F334,328_HSS_F334.pdf,evaluation weights unclear (sum=105)
+HSS F343,329_HSS_F343.pdf,evaluation weights unclear (sum=70)
+HSS F346,330_HSS_F346.pdf,evaluation weights unclear (sum=90)
+HSS F349,331_HSS_F349.pdf,evaluation weights unclear (sum=63)
+HSS U141,332_HSS_U141.pdf,evaluation weights unclear (sum=0)
+INSTR F266,336_INSTR_F266.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+INSTR F366,340_INSTR_F366.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+INSTR F367,341_INSTR_F367.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+INSTR F376,342_INSTR_F376.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+INSTR F377,343_INSTR_F377.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+INSTR F491,344_INSTR_F491.pdf,evaluation weights unclear (sum=0); makeup policy unknown
+MAC F211,345_MAC_F211.pdf,evaluation weights unclear (sum=105)
+MAC F213,347_MAC_F213.pdf,evaluation weights unclear (sum=80)
+MAC F214,348_MAC_F214.pdf,very little text (scanned PDF?); no evaluation section found; makeup policy unknown
+MAC F266,349_MAC_F266.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MAC F311,350_MAC_F311.pdf,evaluation weights unclear (sum=83)
+MAC F312,351_MAC_F312.pdf,no evaluation section found
+MAC F314,352_MAC_F314.pdf,evaluation weights unclear (sum=65)
+MAC F366,353_MAC_F366.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MAC F367,354_MAC_F367.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MAC F376,355_MAC_F376.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MAC F377,356_MAC_F377.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MAC F491,357_MAC_F491.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MATH F101,358_MATH_F101.pdf,evaluation weights unclear (sum=120)
+MATH F213,361_MATH_F213.pdf,evaluation weights unclear (sum=80)
+MATH F214,362_MATH_F214.pdf,very little text (scanned PDF?); no evaluation section found; makeup policy unknown
+MATH F215,363_MATH_F215.pdf,evaluation weights unclear (sum=83)
+MATH F266,364_MATH_F266.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MATH F366,368_MATH_F366.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MATH F376,369_MATH_F376.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MATH F377,370_MATH_F377.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MATH F428,372_MATH_F428.pdf,evaluation weights unclear (sum=85)
+MATH F432,373_MATH_F432.pdf,evaluation weights unclear (sum=80)
+MATH F491,374_MATH_F491.pdf,evaluation weights unclear (sum=65); makeup policy unknown
+MATH U101,375_MATH_U101.pdf,evaluation weights unclear (sum=120)
+ME F211,377_ME_F211.pdf,evaluation weights unclear (sum=60)
+ME F212,378_ME_F212.pdf,evaluation weights unclear (sum=25)
+ME F315,382_ME_F315.pdf,evaluation weights unclear (sum=80)
+ME F317,384_ME_F317.pdf,evaluation weights unclear (sum=94)
+ME F321,385_ME_F321.pdf,no evaluation section found
+ME F340,387_ME_F340.pdf,evaluation weights unclear (sum=55)
+ME F443,392_ME_F443.pdf,no evaluation section found
+ME G512,396_ME_G512.pdf,evaluation weights unclear (sum=50)
+ME G512,397_ME_G512.pdf,evaluation weights unclear (sum=50)
+ME G545,400_ME_G545.pdf,no evaluation section found
+ME G545,401_ME_G545.pdf,no evaluation section found
+ME G552,402_ME_G552.pdf,evaluation weights unclear (sum=75)
+ME U443,410_ME_U443.pdf,no evaluation section found
+MEL G623,411_MEL_G623.pdf,evaluation weights unclear (sum=50)
+MEL G623,412_MEL_G623.pdf,evaluation weights unclear (sum=50)
+MEL G624,413_MEL_G624.pdf,evaluation weights unclear (sum=0)
+MEL G624,414_MEL_G624.pdf,evaluation weights unclear (sum=0)
+MEL G628,419_MEL_G628.pdf,makeup policy unknown
+MF F211,424_MF_F211.pdf,evaluation weights unclear (sum=60)
+MF F217,426_MF_F217.pdf,evaluation weights unclear (sum=30)
+MF F218,427_MF_F218.pdf,evaluation weights unclear (sum=95)
+MF F315,429_MF_F315.pdf,no evaluation section found
+MGTS U102,433_MGTS_U102.pdf,no evaluation section found
+MPBA G501,434_MPBA_G501.pdf,evaluation weights unclear (sum=85)
+MPBA G502,435_MPBA_G502.pdf,makeup policy unknown
+MPBA G502,436_MPBA_G502.pdf,makeup policy unknown
+MPBA G503,437_MPBA_G503.pdf,evaluation weights unclear (sum=125)
+MPBA G503,438_MPBA_G503.pdf,evaluation weights unclear (sum=125)
+MPBA G504,439_MPBA_G504.pdf,evaluation weights unclear (sum=95)
+MPBA G504,440_MPBA_G504.pdf,evaluation weights unclear (sum=95)
+MPBA G505,441_MPBA_G505.pdf,makeup policy unknown
+MPBA G505,442_MPBA_G505.pdf,makeup policy unknown
+MPBA G506,443_MPBA_G506.pdf,makeup policy unknown
+MPBA G506,444_MPBA_G506.pdf,makeup policy unknown
+MPBA G515,449_MPBA_G515.pdf,evaluation weights unclear (sum=82)
+MPBA G515,450_MPBA_G515.pdf,evaluation weights unclear (sum=82)
+MPBA G520,452_MPBA_G520.pdf,evaluation weights unclear (sum=105)
+MPBA G520,453_MPBA_G520.pdf,evaluation weights unclear (sum=105)
+MPBA G523,454_MPBA_G523.pdf,makeup policy unknown
+MPBA G523,455_MPBA_G523.pdf,makeup policy unknown
+MPBA G526,458_MPBA_G526.pdf,makeup policy unknown
+MPBA G529,459_MPBA_G529.pdf,evaluation weights unclear (sum=58)
+MPBA G529,460_MPBA_G529.pdf,evaluation weights unclear (sum=58)
+MPBA G530,461_MPBA_G530.pdf,evaluation weights unclear (sum=60); makeup policy unknown
+MPBA G532,463_MPBA_G532.pdf,makeup policy unknown
+MPBA G532,464_MPBA_G532.pdf,makeup policy unknown
+MPBA G534,465_MPBA_G534.pdf,evaluation weights unclear (sum=70)
+MPBA G534,466_MPBA_G534.pdf,evaluation weights unclear (sum=70)
+MSE G521,469_MSE_G521.pdf,makeup policy unknown
+MSE G521,470_MSE_G521.pdf,makeup policy unknown
+PHA F311,473_PHA_F311.pdf,no evaluation section found
+PHA F312,474_PHA_F312.pdf,no evaluation section found
+PHA F313,475_PHA_F313.pdf,no evaluation section found
+PHA F315,476_PHA_F315.pdf,evaluation weights unclear (sum=45)
+PHA F419,479_PHA_F419.pdf,evaluation weights unclear (sum=30)
+PHA G534,481_PHA_G534.pdf,evaluation weights unclear (sum=40)
+PHA G534,482_PHA_G534.pdf,evaluation weights unclear (sum=40)
+PHA G538,484_PHA_G538.pdf,no evaluation section found; makeup policy unknown
+PHA G538,485_PHA_G538.pdf,no evaluation section found; makeup policy unknown
+PHA G612,493_PHA_G612.pdf,evaluation weights unclear (sum=90)
+PHA G612,494_PHA_G612.pdf,evaluation weights unclear (sum=90)
+PHA G613,495_PHA_G613.pdf,evaluation weights unclear (sum=85)
+PHA G613,496_PHA_G613.pdf,evaluation weights unclear (sum=85)
+PHA G616,497_PHA_G616.pdf,evaluation weights unclear (sum=30)
+PHA G623,503_PHA_G623.pdf,no evaluation section found; makeup policy unknown
+PHA G623,504_PHA_G623.pdf,no evaluation section found; makeup policy unknown
+PHA G624,505_PHA_G624.pdf,evaluation weights unclear (sum=90)
+PHA G624,506_PHA_G624.pdf,evaluation weights unclear (sum=90)
+PHY F211,508_PHY_F211.pdf,no evaluation section found
+PHY F214,511_PHY_F214.pdf,evaluation weights unclear (sum=50); makeup policy unknown
+PHY F312,513_PHY_F312.pdf,evaluation weights unclear (sum=144)
+PHY F318,515_PHY_F318.pdf,makeup policy unknown
+PHY F416,517_PHY_F416.pdf,no evaluation section found
+PHY F422,518_PHY_F422.pdf,evaluation weights unclear (sum=90)
+PHY F426,519_PHY_F426.pdf,evaluation weights unclear (sum=120)
+PHY G541,520_PHY_G541.pdf,evaluation weights unclear (sum=120)
+PHY G541,521_PHY_G541.pdf,evaluation weights unclear (sum=120)
+PHY U110,524_PHY_U110.pdf,evaluation weights unclear (sum=50)
+SNS F211,533_SNS_F211.pdf,evaluation weights unclear (sum=81)
+SS G562,538_SS_G562.pdf,evaluation weights unclear (sum=0)
+SS G562,539_SS_G562.pdf,evaluation weights unclear (sum=0)
+SW E101,540_SW_E101.pdf,"pass/fail course, no graded components"
