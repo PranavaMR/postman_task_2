@@ -16,7 +16,9 @@ flowchart LR
     G <-->|function calls| T
     G --> UI[app.py<br/>Streamlit]
 ```
-
+## PLEASE NOTE
+- If the UI says Gemini not working- It always means that its at heavy cloud usage traffic, just try after 3-5 minutes. 
+- If my API key quota is over, make your own free API key and paste it in .env
 ## Run it
 
 ```
@@ -119,7 +121,26 @@ students past first year.
   implemented.
 ## Errors and Forthcomings
 
-- While testing it with streamlit UI
+While testing it with the streamlit UI, the first version was honestly pretty broken. The answers looked like templates, and it turned out Gemini wasn't even running - the app silently fell back to keyword matching whenever the API call failed, so I had no idea. The keyword matching also couldn't handle normal questions like "AI related DELs" or "department electives", and I had to type in every CDC I had done by hand, which defeats the point of a recommender.
+
+So I had it overhauled ( with Claude ) before going further:
+
+- Gemini is now an actual agent with 3 tools ( `get_requirements`, `search_courses`, `get_course_details` ). It decides what to call, and the tools only return what engine.py says I'm eligible for, so it can't make up courses or rules. The "How this was decided" dropdown under each answer shows which tools it called.
+- Chat history is kept, so follow up questions work.
+- The top of the page now clearly says whether Gemini is connected or not, instead of failing silently.
+- The offline mode was improved so it at least understands categories, code prefixes and things like "no midsem".
+- The profile works out the year of study from the admission year and assumes the earlier CDCs are done, so you only mark backlogs and the electives you've taken.
+
+After that, getting Gemini to actually connect took a few small fixes:
+
+- `gemini-2.5-flash` isn't available to new API keys anymore ( 404 ), so the default is now `gemini-flash-latest`. I wrote `check_gemini.py` to figure this out - it checks the key, lists the models the key can use and tries one.
+- The key is now passed to the client directly, since the library prefers a `GOOGLE_API_KEY` from the environment if one exists.
+- The client was being closed before the request went out, because it wasn't stored in a variable.
+- The model kept returning 503 ( high demand ) at night, so it now falls back to `gemini-3-flash-preview` and `gemini-flash-lite-latest`, and a busy model doesn't count as "not connected".
+- The connection check was cached for 10 minutes, so even after fixing things the app kept showing the old error. It's now checked once per session.
+- GitHub blocked a push because my real key had ended up in `.env.example`. I removed it from the commits and will be rotating the key.
+
+It works now, but it's slow - an answer takes a while since Gemini calls the tools a couple of times before replying. Things I'd still like to do: prerequisite checks, first year requirements, and the timetable clash check.
 ## How this was built
 
 This project was built with the assistance of Sonnet 5, which I used to make
