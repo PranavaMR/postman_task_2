@@ -7,6 +7,7 @@ import engine, recommend
 
 load_dotenv(override=True)                      # .env wins over any old key set in the terminal
 MODEL = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
+FALLBACKS = ["gemini-3-flash-preview", "gemini-flash-lite-latest"]   # tried in order if the main model is overloaded
 CATEGORIES = ["CDC", "DEL", "HUEL", "OPEL"]
 
 SYSTEM = """You are a friendly course advisor for BITS Pilani students choosing courses for First Semester 2026-27.
@@ -91,26 +92,35 @@ def client():
     return genai.Client(api_key=os.getenv("GEMINI_API_KEY", "").strip())   # explicit, so a GOOGLE_API_KEY can't override it
 
 def status():
-    """-> (ok, message). Makes one tiny request so a bad key or model name shows up before the student asks."""
     if not os.getenv("GEMINI_API_KEY"):
         return False, "No GEMINI_API_KEY in .env: running in offline keyword mode."
+    from google.genai import errors
     try:
-        client().models.generate_content(model=MODEL, contents="Reply with the word OK.")
+        gemini = client()
+        gemini.models.generate_content(model=MODEL, contents="Reply with the word OK.")
         return True, f"Gemini connected ({MODEL})."
+    except errors.ServerError:
+        return True, f"Gemini connected, but {MODEL} is busy right now; backup models will be used if needed."
     except Exception as e:
         return False, f"Gemini is not working, so offline keyword mode is used. Error: {e}"
 
-
 def chat(con, student, history, question):
-    """history: earlier turns as [{"role": "user" | "assistant", "text": ...}]. -> (reply, tool_log)"""
-    from google.genai import types
+    from google.genai import types, errors
     log = []
     config = types.GenerateContentConfig(
         system_instruction=SYSTEM.format(profile=profile_text(student)), tools=make_tools(con, student, log),
         temperature=0.3, automatic_function_calling=types.AutomaticFunctionCallingConfig(maximum_remote_calls=8))
     past = [types.Content(role="user" if m["role"] == "user" else "model", parts=[types.Part(text=m["text"])])
             for m in history]
-    reply = client().chats.create(model=MODEL, config=config, history=past).send_message(question)
+    gemini = client()
+    for model in [MODEL] + FALLBACKS:
+        try:
+            reply = gemini.chats.create(model=model, config=config, history=past).send_message(question)
+            break
+        except errors.ServerError:
+            log.clear()
+            if model == FALLBACKS[-1]:
+                raise
     return reply.text or "Sorry, I couldn't finish that one. Could you rephrase or narrow it down?", log
 
 
