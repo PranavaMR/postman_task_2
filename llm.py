@@ -5,8 +5,8 @@ import json, os, re
 from dotenv import load_dotenv
 import engine, recommend
 
-load_dotenv()
-MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+load_dotenv(override=True)                      # .env wins over any old key set in the terminal
+MODEL = os.getenv("GEMINI_MODEL", "gemini-flash-latest")
 CATEGORIES = ["CDC", "DEL", "HUEL", "OPEL"]
 
 SYSTEM = """You are a friendly course advisor for BITS Pilani students choosing courses for First Semester 2026-27.
@@ -86,15 +86,16 @@ def make_tools(con, student, log):
         return result
 
     return [get_requirements, search_courses, get_course_details]
-
+def client():
+    from google import genai
+    return genai.Client(api_key=os.getenv("GEMINI_API_KEY", "").strip())   # explicit, so a GOOGLE_API_KEY can't override it
 
 def status():
     """-> (ok, message). Makes one tiny request so a bad key or model name shows up before the student asks."""
     if not os.getenv("GEMINI_API_KEY"):
         return False, "No GEMINI_API_KEY in .env: running in offline keyword mode."
     try:
-        from google import genai
-        genai.Client().models.generate_content(model=MODEL, contents="Reply with the word OK.")
+        client().models.generate_content(model=MODEL, contents="Reply with the word OK.")
         return True, f"Gemini connected ({MODEL})."
     except Exception as e:
         return False, f"Gemini is not working, so offline keyword mode is used. Error: {e}"
@@ -102,7 +103,6 @@ def status():
 
 def chat(con, student, history, question):
     """history: earlier turns as [{"role": "user" | "assistant", "text": ...}]. -> (reply, tool_log)"""
-    from google import genai
     from google.genai import types
     log = []
     config = types.GenerateContentConfig(
@@ -110,7 +110,7 @@ def chat(con, student, history, question):
         temperature=0.3, automatic_function_calling=types.AutomaticFunctionCallingConfig(maximum_remote_calls=8))
     past = [types.Content(role="user" if m["role"] == "user" else "model", parts=[types.Part(text=m["text"])])
             for m in history]
-    reply = genai.Client().chats.create(model=MODEL, config=config, history=past).send_message(question)
+    reply = client().chats.create(model=MODEL, config=config, history=past).send_message(question)
     return reply.text or "Sorry, I couldn't finish that one. Could you rephrase or narrow it down?", log
 
 

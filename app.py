@@ -15,12 +15,6 @@ def load_profile():
     data.setdefault("others", data.get("completed", []))          # profiles saved by the older version
     return data
 
-
-@st.cache_data(ttl=600, show_spinner="Checking Gemini...")
-def gemini_status():
-    return llm.status()
-
-
 def pick(label, options, saved, **kw):
     return st.multiselect(label, options, [c for c in saved if c in options], **kw)
 
@@ -63,7 +57,9 @@ with st.sidebar:
         st.success("Saved")
 
 st.title("BITS Academic Course Recommender")
-online, message = gemini_status()
+if "gemini" not in st.session_state:                 # checked once per browser tab; refresh the page to re-check
+    st.session_state.gemini = llm.status()
+online, message = st.session_state.gemini
 (st.success if online else st.warning)(message)
 if not profile["programmes"]:
     st.info("Choose your degree in the sidebar to begin.")
