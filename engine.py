@@ -1,8 +1,4 @@
 
-# student dictionary input
-#    {"programmes": ["COMPUTER SCIENCE"], "admission_year": 2024,
-#     "completed": ["CS F111", "CS F213"], "current": ["CS F211"]}
-
 import sqlite3
 from collections import Counter
 
@@ -13,6 +9,18 @@ NEW_CURRICULUM_COMP_CODE = 5000                          # timetable note: comp 
 PROJECT_NUMBERS = {"266", "366", "367", "376", "377", "491"}
 NOT_REGISTRABLE = {"BITS F412", "BITS F413"}             # Practice School is allotted, not chosen
 SEMESTER_YEAR = 2026                                     # First Semester 2026-27
+
+
+def study_year(student):
+    return student.get("year") or SEMESTER_YEAR - student["admission_year"] + 1
+
+
+def level(code):
+    return int(code.split()[1][1])                       # "CS F213" -> 2, the year it is normally taken
+
+
+def assumed_done(con, programmes, year):
+    return sorted(c for p in programmes for c in programme_info(con, p)["core"] if level(c) < year)
 
 
 def connect(db=DB):
@@ -69,7 +77,7 @@ def category(code, progs, huel):
     if any(code in p["del"] or is_project(code, p["dept"]) for p in progs):
         return "DEL"
     if code in huel and not any(code.split()[0] == p["dept"] for p in progs):
-        return "HUEL"                                    # own discipline courses can't be HUEL (Bulletin IV-127)
+        return "HUEL"                                    # own-discipline courses can't be HUEL (Bulletin IV-127)
     return "OPEL"
 
 
@@ -96,6 +104,9 @@ def remaining(con, student):
     result["huel_left"] = max(0, HUEL_UNITS - huel_done)
     if len(student["programmes"]) == 2:
         result["notes"].append("Dual degree: DELs of one degree may count as open electives of the other (Reg 2.05)")
+    if student["admission_year"] >= 2026:
+        result["notes"].append("2026 admits follow the new curriculum, which is not in the supplied Bulletin: "
+                               "requirements and categories are not verified")
     return result
 
 
@@ -116,7 +127,7 @@ def eligible(con, student):
         if (comp >= NEW_CURRICULUM_COMP_CODE) != new_admit:
             continue
         seen.add(code)
-        if code.split()[1][1] == "1" and SEMESTER_YEAR - student["admission_year"] >= 1:
+        if level(code) == 1 and study_year(student) > 1:
             continue                                     # first-year course for a senior student (Reg 3.18)
         cat = category(code, progs, huel)
         notes = []
@@ -131,6 +142,26 @@ def eligible(con, student):
         out.append({"comp_code": comp, "code": code, "title": title, "units": units,
                     "category": cat, "notes": notes})
     return out
+
+
+def why_not(con, student, code):
+    """Is `code` open to this student this semester? -> (True, category) or (False, reason)."""
+    for c in eligible(con, student):
+        if c["code"] == code:
+            return True, c["category"]
+    rows = con.execute("SELECT s.cancelled, c.comp_code FROM courses c JOIN sections s ON s.comp_code = c.comp_code "
+                       "WHERE c.code = ?", (code,)).fetchall()
+    if code in done_set(con, student["completed"] + student.get("current", [])):
+        return False, "already completed, currently registered, or an equivalent course was done"
+    if not rows:
+        return False, "not offered this semester (not in the timetable)"
+    if all(cancelled for cancelled, _ in rows):
+        return False, "all its sections are cancelled this semester"
+    if code in NOT_REGISTRABLE or code.endswith("T"):
+        return False, "Practice School / thesis courses are allotted, not chosen"
+    if level(code) == 1 and study_year(student) > 1:
+        return False, "first-year course; you are past first year (Reg 3.18)"
+    return False, "only offered to the other curriculum (comp code >= 5000 is for 2026 admits)"
 
 
 if __name__ == "__main__":
